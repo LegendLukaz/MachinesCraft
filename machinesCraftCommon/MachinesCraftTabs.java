@@ -14,7 +14,7 @@ public class MachinesCraftTabs extends CreativeTabs {
 	@Override
 	public ItemStack getIconItemStack()
     {
-        return new ItemStack(MachinesCraft.MechanicBlock);
+        return new ItemStack(MachinesCraft.MechanicBlock); //need fix on this line
     }
 	
 }
