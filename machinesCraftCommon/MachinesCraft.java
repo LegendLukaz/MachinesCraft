@@ -44,10 +44,11 @@ public class MachinesCraft
 	public static int AluminiumOreNode;
 	public static int AluminiumOreMaxY;
 	
+	public static CreativeTabs machinesCraftTab = new MachinesCraftTabs(CreativeTabs.getNextID(), "machinescrafttab");
+	
 	@PreInit
 	public void preload(FMLPreInitializationEvent event)
 	{
-		proxy.registerRenderThings();
 		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try {
 
@@ -57,25 +58,22 @@ public class MachinesCraft
 			AluminiumItemID = cfg.getItem("Aluminium", 7000).getInt();
 			
 			AluminiumOreNode = cfg.get(Configuration.CATEGORY_GENERAL, "AluminiumOreNode", "6").getInt();
-			AluminiumOreMaxY = cfg.get(Configuration.CATEGORY_GENERAL, "Aluminium Maxium Y-level", "55"+1).getInt();
+			AluminiumOreMaxY = cfg.get(Configuration.CATEGORY_GENERAL, "Aluminium Maxium Y-level", "55" + 1).getInt();
 			
-			LanguageRegistry.instance().addStringLocalization("itemGroup.machinesCraftTab", "en_US", "Machines Craft");
-			LanguageRegistry.instance().addStringLocalization("itemGroup.machinesCraftTab", "zh_TW", "機器模組");
+			LanguageRegistry.instance().addStringLocalization("itemGroup.machinescraftTab", "en_US", "Machines Craft");
+			LanguageRegistry.instance().addStringLocalization("itemGroup.machinescraftTab", "zh_TW", "機器模組");
 			
 			Aluminium = new ItemAluminium(AluminiumItemID).setUnlocalizedName("aluminium");
 			LanguageRegistry.addName(Aluminium, "Aluminium Ingot");
-			Aluminium.setCreativeTab(MachinesCraftTabs.machinesCraftTab);
-			ItemStack AluminiumStack = new ItemStack(Aluminium);
-			GameRegistry.addRecipe(new ShapedOreRecipe(MachinesCraft.MechanicBlock, 1, new Object[]{
-                    "FFF","F F","FFF", Character.valueOf('F'), "ingotAluminium"}));
+			Aluminium.setCreativeTab(this.machinesCraftTab);
 			
 			MechanicBlock = new BlockMechanicBlock(MechanicBlockBlockID).setHardness(3.0F).setResistance(15.0F).setUnlocalizedName("mechanicBlock");
-			MechanicBlock.setCreativeTab(MachinesCraftTabs.machinesCraftTab);
-			GameRegistry.registerBlock(MechanicBlock, "machinescraft.mechanicBlock");
+			MechanicBlock.setCreativeTab(this.machinesCraftTab);
+			GameRegistry.registerBlock(MechanicBlock, "machinescraft_mechanicBlock");
 			LanguageRegistry.addName(MechanicBlock, "Mechanic Block");
 			
 			AluminiumOre = new BlockAluminiumOre(AluminiumOreBlockID).setHardness(3.0F).setResistance(10.0F).setUnlocalizedName("aluminiumOre");
-			AluminiumOre.setCreativeTab(MachinesCraftTabs.machinesCraftTab);
+			AluminiumOre.setCreativeTab(this.machinesCraftTab);
 			ItemStack AluminiumOreStack = new ItemStack(AluminiumOre);
 			GameRegistry.registerBlock(AluminiumOre, "machinescraft.AluminiumOre");
 			LanguageRegistry.addName(AluminiumOre, "Aluminium Ore");
@@ -97,6 +95,7 @@ public class MachinesCraft
 	public void load(FMLInitializationEvent event) 
 	{
 		OreDictionary.registerOre("ingotAluminium", new ItemStack(Aluminium));
+		proxy.registerRenderThings();
 	}
 
 }
