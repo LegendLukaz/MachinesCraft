@@ -10,7 +10,8 @@ public class ItemAluminium extends Item {
 		 super(id);
 		 }
 	
-	 public String getTextureFile() {
-		 return "/MachinesCraft/Items.png";
-		 }
+	 public void func_94581_a(IconRegister iconRegister)
+	 {
+	          iconIndex = iconRegister.func_94245_a("MachinesCraft:Aluminium");
+	 }
 }

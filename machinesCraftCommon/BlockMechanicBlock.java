@@ -19,7 +19,7 @@ public class BlockMechanicBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public void func_94332_a(IconRegister par1IconRegister)
     {
-        field_94336_cN = par1IconRegister.func_94245_a(MachinesCraft.MechanicBlock.getUnlocalizedName());
+        field_94336_cN = par1IconRegister.func_94245_a("MachinesCraft:MechanicBlock");
     }
 	
 }

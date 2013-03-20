@@ -18,7 +18,7 @@ public class MachinesCraftTabs extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack()
     {
-        return new ItemStack(MachinesCraft.MechanicBlock); //need fix on this line
+        return new ItemStack(MachinesCraft.MechanicBlock);
     }
 	
 }

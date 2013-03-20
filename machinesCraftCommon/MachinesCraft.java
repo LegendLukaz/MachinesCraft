@@ -6,7 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.FMLLog;
@@ -60,17 +62,19 @@ public class MachinesCraft
 			AluminiumOreNode = cfg.get(Configuration.CATEGORY_GENERAL, "AluminiumOreNode", "6").getInt();
 			AluminiumOreMaxY = cfg.get(Configuration.CATEGORY_GENERAL, "Aluminium Maxium Y-level", "55" + 1).getInt();
 			
-			LanguageRegistry.instance().addStringLocalization("itemGroup.machinescraftTab", "en_US", "Machines Craft");
-			LanguageRegistry.instance().addStringLocalization("itemGroup.machinescraftTab", "zh_TW", "¾÷¾¹¼Ò²Õ");
-			
-			Aluminium = new ItemAluminium(AluminiumItemID).setUnlocalizedName("aluminium");
-			LanguageRegistry.addName(Aluminium, "Aluminium Ingot");
-			Aluminium.setCreativeTab(this.machinesCraftTab);
+			LanguageRegistry.instance().addStringLocalization("itemGroup.machinescrafttab", "Machines Craft");
 			
 			MechanicBlock = new BlockMechanicBlock(MechanicBlockBlockID).setHardness(3.0F).setResistance(15.0F).setUnlocalizedName("mechanicBlock");
 			MechanicBlock.setCreativeTab(this.machinesCraftTab);
 			GameRegistry.registerBlock(MechanicBlock, "machinescraft_mechanicBlock");
 			LanguageRegistry.addName(MechanicBlock, "Mechanic Block");
+			
+			Aluminium = new ItemAluminium(AluminiumItemID).setUnlocalizedName("aluminium").setMaxStackSize(64);
+			LanguageRegistry.addName(MachinesCraft.Aluminium, "Aluminium Ingot");
+			Aluminium.setCreativeTab(this.machinesCraftTab);
+			OreDictionary.registerOre("ingotAluminium", MachinesCraft.Aluminium);
+			CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(new ItemStack(MachinesCraft.MechanicBlock), "XXX", "X X", "XXX",
+					Character.valueOf('X'), "ingotAluminium"));
 			
 			AluminiumOre = new BlockAluminiumOre(AluminiumOreBlockID).setHardness(3.0F).setResistance(10.0F).setUnlocalizedName("aluminiumOre");
 			AluminiumOre.setCreativeTab(this.machinesCraftTab);
@@ -94,8 +98,7 @@ public class MachinesCraft
 	@Init
 	public void load(FMLInitializationEvent event) 
 	{
-		OreDictionary.registerOre("ingotAluminium", new ItemStack(Aluminium));
-		proxy.registerRenderThings();
+		MinecraftForge.setBlockHarvestLevel(AluminiumOre, "pickaxe", 2);
 	}
 
 }
