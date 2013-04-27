@@ -1,0 +1,19 @@
+[
+{
+  "modid": "MachinesCraft",
+  "name": "Machines Craft",
+  "description": "Introduce Machines into Minecraft",
+  "version": "0.0.1",
+  "credits": "Created by Legend_Luk",
+  "logoFile": "",
+  "mcversion": "1.5.1",
+  "url": "",
+  "updateUrl": "",
+  "authors": [ "Legend_Luk" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": [
+	 "mod_MinecraftForge"
+]
+}
+]
