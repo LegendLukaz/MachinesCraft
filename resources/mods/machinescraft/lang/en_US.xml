@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	<entry key="item.aluminium.name">Aluminium</entry>
+	<entry key="tile.mechanicBlock.name">Mechanic Block</entry>
+	<entry key="tile.aluminiumOre.name">Aluminium Ore</entry>
+	<entry key="itemGroup.machinescraft">Machines Craft</entry>
+</properties>
