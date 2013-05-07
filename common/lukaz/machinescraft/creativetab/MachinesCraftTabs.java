@@ -1,10 +1,10 @@
 package lukaz.machinescraft.creativetab;
 
+import lukaz.machinescraft.blocks.ModBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import lukaz.machinescraft.Machinescraft;
 
 public class MachinesCraftTabs extends CreativeTabs {
 	
@@ -17,7 +17,7 @@ public class MachinesCraftTabs extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack()
     {
-        return new ItemStack(Machinescraft.MechanicBlock);
+        return new ItemStack(ModBlocks.mechanicBlock);
     }
 	
 }
