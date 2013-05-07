@@ -1,21 +1,20 @@
 package lukaz.machinescraft.blocks;
 
-import net.minecraft.block.Block;
+import lukaz.machinescraft.Machinescraft;
+import lukaz.machinescraft.lib.Strings;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 
-public class BlockAluminiumOre extends Block {
-	
-	public BlockAluminiumOre(int id) {
+public class BlockAluminiumOre extends BlockMachinescraft
+{
 
-		super(id, Material.rock);
-		
-		}
-	
-	@Override
-	public void func_94332_a(IconRegister par1IconRegister)
-	{
-	         this.field_94336_cN = par1IconRegister.func_94245_a("MachinesCraft:AluminiumOre");
-	}
+    public BlockAluminiumOre(int id) {
+
+        super(id, Material.rock);
+        this.setUnlocalizedName(Strings.ALUMINIUM_NAME);
+        this.setCreativeTab(Machinescraft.machinesCraftTab);
+        this.setHardness(3.0F);
+        this.setResistance(10.0F);
+
+    }
 
 }

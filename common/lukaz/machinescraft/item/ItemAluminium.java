@@ -1,17 +1,17 @@
 package lukaz.machinescraft.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.Item;
+import lukaz.machinescraft.Machinescraft;
+import lukaz.machinescraft.lib.Strings;
 
-public class ItemAluminium extends Item {
+public class ItemAluminium extends ItemMachinescraft
+{
 
-	 public ItemAluminium(int id) {
+    public ItemAluminium(int id) {
 
-		 super(id);
-		 }
-	
-	 public void func_94581_a(IconRegister iconRegister)
-	 {
-	          iconIndex = iconRegister.func_94245_a("MachinesCraft:Aluminium");
-	 }
+        super(id);
+        this.setUnlocalizedName(Strings.ALUMINIUM_NAME);
+        this.setCreativeTab(Machinescraft.machinesCraftTab);
+        maxStackSize = 64;
+    }
+
 }

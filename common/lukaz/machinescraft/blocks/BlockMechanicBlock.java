@@ -1,24 +1,18 @@
 package lukaz.machinescraft.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
+import lukaz.machinescraft.Machinescraft;
+import lukaz.machinescraft.lib.Strings;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 
-public class BlockMechanicBlock extends Block {
+public class BlockMechanicBlock extends BlockMachinescraft {
 	
 	public BlockMechanicBlock(int id) {
 
 		super(id, Material.iron);
-		
+		this.setUnlocalizedName(Strings.MECHANIC_BLOCK_NAME);
+		this.setHardness(3.33F);
+		this.setResistance(30F);
+		this.setCreativeTab(Machinescraft.machinesCraftTab);
 		}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void func_94332_a(IconRegister par1IconRegister)
-    {
-        field_94336_cN = par1IconRegister.func_94245_a("MachinesCraft:MechanicBlock");
-    }
 	
 }
