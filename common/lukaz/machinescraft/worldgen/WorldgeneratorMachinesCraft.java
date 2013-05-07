@@ -3,6 +3,8 @@ package lukaz.machinescraft.worldgen;
 import java.util.Random;
 
 import lukaz.machinescraft.Machinescraft;
+import lukaz.machinescraft.lib.BlockIds;
+import lukaz.machinescraft.lib.Worldgen;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -27,10 +29,10 @@ public class WorldgeneratorMachinesCraft implements IWorldGenerator {
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ) {
 		int Xcoord = blockX + random.nextInt(16);
-		int Ycoord = random.nextInt(Machinescraft.AluminiumOreMaxY);
+		int Ycoord = random.nextInt(Worldgen.ALUMINIUM_ORE_MAX_Y_LEVEL);
 		int Zcoord = blockZ + random.nextInt(16);
 		  
-		(new WorldGenMinable(Machinescraft.AluminiumOre.blockID, Machinescraft.AluminiumOreNode)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		(new WorldGenMinable(BlockIds.ALUMINIUM_ORE, Worldgen.ALUMINIUM_ORE_NODE)).generate(world, random, Xcoord, Ycoord, Zcoord);
 		
 	}
 
